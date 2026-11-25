@@ -1,0 +1,6 @@
+{
+  "name": "Medicine & Surgical Products",
+  "description": "বাংলাদেশে অনলাইন স্বাস্থ্যপণ্য — ওষুধ, সার্জিক্যাল সামগ্রী ও মেডিকেল ইকুইপমেন্ট অনলাইন স্টোর এবং অর্ডার ট্র্যাকিং প্ল্যাটফর্ম।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

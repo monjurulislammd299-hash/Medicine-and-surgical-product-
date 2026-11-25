@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#087f5b" />
+  <title>Medicine &amp; Surgical Products — বাংলাদেশে অনলাইন স্বাস্থ্যপণ্য</title>
+  <link rel="icon" type="image/png" href="/assets/aistudio/company_logo_db9cd45e.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #087f5b;
+      --accent-dark: #06694b;
+      --danger: #be123c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', 'Noto Sans Bengali', system-ui, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Bengali', system-ui, sans-serif;
+      margin: 0;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    input, select, textarea { font-family: inherit; }
+
+    /* Header (3-Zone Top Bar) */
+    .topbar {
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Bengali', sans-serif;
+      font-weight: 700; font-size: 16px; white-space: nowrap; flex-shrink: 0;
+    }
+    .brand img { width: 34px; height: 34px; object-fit: contain; border-radius: 6px; background: #fff; }
+    .nav { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 500; color: var(--muted); }
+    .nav a, .nav button {
+      background: none; border: none; padding: 4px 0; color: inherit; font-size: 14px; font-weight: 500;
+      border-bottom: 2px solid transparent; white-space: nowrap;
+    }
+    .nav a:hover, .nav button:hover { color: var(--text); border-bottom-color: var(--accent); }
+    .nav .active-link { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+    .btn-primary {
+      background: var(--accent); color: #fff; border: 1px solid var(--accent);
+      padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-outline {
+      background: #fff; color: var(--accent); border: 1px solid var(--accent);
+      padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap;
+    }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
+    .btn-ghost {
+      background: #f1f5f9; color: var(--text); border: 1px solid var(--border);
+      padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
+    }
+
+    /* Hero */
+    .hero { background: #fff; border-bottom: 1px solid var(--border); padding: 42px 0; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: stretch; }
+    .kicker { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 14px; }
+    .hero p { color: var(--muted); font-size: 16px; max-width: 520px; margin: 0 0 24px; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+    .hero-link { font-size: 14px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; color: #334155; }
+    .hero-media {
+      border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: #f1f5f9; min-height: 260px;
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Toolbar & Grid */
+    .section { padding: 44px 0; }
+    .toolbar {
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+      gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--border);
+    }
+    .toolbar h2 { font-size: 26px; }
+    .muted { color: var(--muted); font-size: 14px; margin: 4px 0 0; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .input, .select, .textarea {
+      width: 100%; padding: 9px 12px; font-size: 14px; background: #fff;
+      border: 1px solid var(--border); border-radius: 8px; color: var(--text);
+    }
+    .input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--accent); }
+    .tabs { display: inline-flex; gap: 4px; padding: 4px; background: #f1f5f9; border-radius: 8px; }
+    .tab-btn {
+      border: none; background: transparent; padding: 6px 12px; border-radius: 6px;
+      font-size: 12px; font-weight: 500; color: var(--muted); white-space: nowrap;
+    }
+    .tab-btn.active { background: #fff; color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,0.06); font-weight: 600; }
+
+    .notice {
+      margin-top: 18px; padding: 12px 16px; background: #fff; border: 1px solid var(--border);
+      border-radius: 8px; font-size: 13px; color: var(--muted);
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    }
+
+    .grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 26px;
+    }
+    .card {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; display: flex; flex-direction: column; transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgba(15,23,42,0.16); }
+    .card-img { aspect-ratio: 4 / 3; background: #f8fafc; overflow: hidden; border-bottom: 1px solid #f1f5f9; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .card-meta { font-size: 12px; color: #64748b; margin-bottom: 6px; }
+    .card-title { font-size: 16px; font-weight: 600; color: var(--text); margin: 0; }
+    .card-sub { font-size: 13px; color: var(--muted); margin: 3px 0 10px; }
+    .card-footer {
+      margin-top: auto; padding-top: 12px; border-top: 1px solid #f1f5f9;
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .price { font-size: 16px; font-weight: 700; color: var(--text); }
+
+    /* Orders */
+    .orders-section { border-top: 1px solid var(--border); }
+    .order-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 16px;
+    }
+    .order-head {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+      padding-bottom: 12px; border-bottom: 1px solid #f1f5f9; font-size: 14px;
+    }
+    .progress-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; padding: 14px 0; }
+    .progress-bar { height: 5px; border-radius: 99px; background: #e2e8f0; }
+    .progress-bar.done { background: var(--accent); }
+    .progress-label { font-size: 11px; color: #64748b; margin-top: 4px; display: block; }
+
+    /* Cart Drawer */
+    .cart-fab {
+      position: fixed; bottom: 20px; right: 20px; z-index: 40;
+      background: var(--accent); color: #fff; border: none; border-radius: 999px;
+      padding: 12px 18px; font-size: 14px; font-weight: 600;
+      box-shadow: 0 12px 24px -8px rgba(8,127,91,0.5);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .backdrop {
+      position: fixed; inset: 0; background: rgba(15,23,42,0.45); z-index: 45; display: none;
+    }
+    .backdrop.open { display: block; }
+    .drawer {
+      position: fixed; top: 0; right: 0; height: 100%; width: 100%; max-width: 420px;
+      background: #fff; z-index: 50; border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; transform: translateX(100%);
+      transition: transform 0.2s ease;
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer-head {
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .drawer-body { flex: 1; overflow-y: auto; padding: 18px 20px; }
+    .drawer-foot { padding: 16px 20px; border-top: 1px solid var(--border); background: #f8fafc; }
+    .cart-row {
+      display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; align-items: center;
+    }
+    .cart-row img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); }
+    .stepper { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .stepper button { border: none; background: #fff; padding: 4px 9px; font-weight: 600; }
+    .stepper span { padding: 4px 8px; font-size: 12px; font-weight: 600; }
+
+    /* Modal */
+    .modal-wrap {
+      position: fixed; inset: 0; z-index: 60; background: rgba(15,23,42,0.5);
+      display: none; align-items: center; justify-content: center; padding: 16px;
+    }
+    .modal-wrap.open { display: flex; }
+    .modal {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      width: 100%; max-width: 440px; padding: 26px; position: relative; max-height: 92vh; overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; border: none; background: #f1f5f9;
+      width: 32px; height: 32px; border-radius: 8px; font-size: 18px;
+    }
+
+    /* Admin */
+    .admin-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 28px; align-items: start; margin-top: 24px; }
+    .panel { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #f1f5f9; }
+    th { background: #f8fafc; color: #64748b; font-size: 12px; font-weight: 600; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 12px; font-weight: 500; color: #334155; margin-bottom: 4px; }
+    .err-box {
+      padding: 10px 12px; background: #fff1f2; border: 1px solid #fecdd3; color: #9f1239;
+      border-radius: 8px; font-size: 12px; margin-bottom: 12px;
+    }
+    .toast {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 70;
+      background: #0f172a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px;
+      display: none; max-width: 90vw;
+    }
+    .toast.show { display: block; }
+    footer { background: #fff; border-top: 1px solid var(--border); padding: 28px 0; margin-top: 40px; font-size: 12px; color: var(--muted); }
+    .hidden { display: none !important; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .admin-grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .nav { display: none; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#top" id="brandLink" class="brand">
+        <img src="/assets/aistudio/company_logo_db9cd45e.png" alt="Medicine & Surgical Products" onerror="this.style.display='none'" />
+        <span>Medicine &amp; Surgical Products</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#products" data-nav="store">Products</a>
+        <a href="#orders" data-nav="orders">My Orders</a>
+        <a href="#orders" data-nav="orders">Track Order</a>
+        <button type="button" id="navAdminBtn" class="hidden">Admin Panel</button>
+      </nav>
+      <button type="button" id="authBtn" class="btn-outline">Login</button>
+    </div>
+  </header>
+
+  <main id="storeView">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div style="display:flex;flex-direction:column;justify-content:center;">
+          <div class="kicker">বাংলাদেশে অনলাইন স্বাস্থ্যপণ্য · Care · Quality · Convenience</div>
+          <h1>Medicine &amp; Surgical Products</h1>
+          <p>ওষুধ ও সার্জিক্যাল পণ্য সহজে খুঁজুন, কার্টে যোগ করুন এবং রিয়েল-টাইম Tracking ID দিয়ে আপনার অর্ডার ট্র্যাক করুন।</p>
+          <div class="hero-actions">
+            <a href="#products" class="btn-primary">পণ্য দেখুন →</a>
+            <a href="#orders" class="hero-link">অর্ডার ট্র্যাক করুন</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="/src/assets/images/hero_clinical_pharmacy_1795535747174.jpg" alt="Clinical pharmacy and surgical supplies" onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="products">
+      <div class="toolbar">
+        <div>
+          <h2>পণ্য তালিকা</h2>
+          <p class="muted">ছবি, নাম ও নির্ধারিত দামসহ অনুমোদিত ওষুধ ও সার্জিক্যাল পণ্য</p>
+        </div>
+        <div class="controls">
+          <input id="searchInput" class="input" style="width:220px;" type="search" placeholder="পণ্য খুঁজুন..." aria-label="Search products" />
+          <div class="tabs" id="categoryTabs">
+            <button type="button" class="tab-btn active" data-cat="ALL">সব ক্যাটাগরি</button>
+            <button type="button" class="tab-btn" data-cat="Medicine">Medicine</button>
+            <button type="button" class="tab-btn" data-cat="Surgical">Surgical</button>
+            <button type="button" class="tab-btn" data-cat="Medical Equipment">Medical Equipment</button>
+            <button type="button" class="tab-btn" data-cat="Personal Care">Personal Care</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="catalogNotice" class="notice hidden">
+        <span>Firestore ক্যাটালগ এখনও খালি থাকায় প্রাথমিক যাচাইকৃত পণ্য তালিকা দেখানো হচ্ছে।</span>
+        <button type="button" id="seedCatalogBtn" class="btn-primary hidden">Firestore-এ ৮টি পণ্য সংরক্ষণ করুন</button>
+      </div>
+
+      <div id="productGrid" class="grid"></div>
+    </section>
+
+    <section class="section orders-section container" id="orders">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:18px;">
+        <div>
+          <h2>আমার অর্ডার ও ট্র্যাকিং</h2>
+          <p class="muted">লগইন করলে আপনার সব অর্ডার ও Tracking ID এখানে দেখা যাবে।</p>
+        </div>
+        <input id="trackingSearch" class="input hidden" style="width:260px;" type="search" placeholder="Tracking ID (MSP-...) খুঁজুন" />
+      </div>
+      <div id="orderList"></div>
+    </section>
+  </main>
+
+  <main id="adminView" class="section container hidden">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--border);">
+      <div>
+        <button type="button" id="backToStoreBtn" class="btn-ghost" style="margin-bottom:10px;">← স্টোরফ্রন্টে ফিরে যান</button>
+        <h2>Admin Workspace</h2>
+        <p class="muted">পণ্য ইনভেন্টরি (ছবি আপলোডসহ) এবং কাস্টমার অর্ডার পরিচালনা করুন</p>
+      </div>
+      <div id="adminTabs" class="tabs hidden">
+        <button type="button" class="tab-btn active" data-admintab="catalog">পণ্য ব্যবস্থাপনা</button>
+        <button type="button" class="tab-btn" data-admintab="orders">সকল অর্ডার</button>
+      </div>
+    </div>
+
+    <div id="adminGate" class="panel" style="max-width:480px;margin:28px auto 0;"></div>
+
+    <div id="adminContent" class="hidden">
+      <div id="adminCatalogTab" class="admin-grid">
+        <form id="productForm" class="panel">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <h3 id="productFormTitle">নতুন পণ্য যোগ করুন</h3>
+            <button type="button" id="cancelEditBtn" class="btn-ghost hidden" style="padding:4px 10px;font-size:12px;">বাতিল</button>
+          </div>
+          <div class="field"><label>Product Name (English) *</label><input id="pName" class="input" required minlength="2" maxlength="140" /></div>
+          <div class="field"><label>পণ্যের বাংলা নাম *</label><input id="pNameBn" class="input" required minlength="2" maxlength="180" /></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div class="field"><label>ক্যাটাগরি *</label>
+              <select id="pCategory" class="select">
+                <option>Medicine</option><option>Surgical</option><option>Medical Equipment</option><option>Personal Care</option>
+              </select>
+            </div>
+            <div class="field"><label>প্রস্তুতকারক *</label><input id="pMaker" class="input" required maxlength="120" /></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+            <div class="field"><label>দাম (৳) *</label><input id="pPrice" class="input mono" type="number" min="0" required /></div>
+            <div class="field"><label>স্টক *</label><input id="pStock" class="input mono" type="number" min="0" required /></div>
+            <div class="field"><label>ইউনিট *</label><input id="pUnit" class="input" required value="1 Box" maxlength="60" /></div>
+          </div>
+          <div class="field">
+            <label>পণ্যের ছবি (ডিভাইস থেকে আপলোড অথবা URL) *</label>
+            <div style="aspect-ratio:4/3;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px;background:#f8fafc;">
+              <img id="pPreview" src="/src/assets/images/product_medicine_tablets_1795535747957.jpg" alt="Preview" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            </div>
+            <input id="pImageFile" type="file" accept="image/*" style="margin-bottom:8px;font-size:12px;width:100%;" />
+            <input id="pImageUrl" class="input mono" style="font-size:12px;" required value="/src/assets/images/product_medicine_tablets_1795535747957.jpg" />
+          </div>
+          <div class="field"><label>বিবরণ</label><textarea id="pDesc" class="textarea" rows="2" maxlength="1000"></textarea></div>
+          <button type="submit" class="btn-primary" style="width:100%;">পণ্য সংরক্ষণ করুন</button>
+        </form>
+
+        <div class="panel">
+          <h3 style="margin-bottom:14px;">পণ্য তালিকা</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>পণ্য</th><th>ক্যাটাগরি</th><th>দাম</th><th>স্টক</th><th>অ্যাকশন</th></tr></thead>
+              <tbody id="adminProductRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="adminOrdersTab" class="hidden" style="margin-top:22px;">
+        <div id="adminOrderList"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="/assets/aistudio/company_logo_db9cd45e.png" alt="Logo" style="width:36px;height:36px;object-fit:contain;border-radius:6px;border:1px solid var(--border);" onerror="this.style.display='none'" />
+        <div>
+          <strong style="color:var(--text);">Medicine &amp; Surgical Products</strong>
+          <div>বাংলাদেশে নির্ভরযোগ্য অনলাইন স্বাস্থ্যপণ্য ও সার্জিক্যাল সামগ্রী।</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:18px;align-items:center;">
+        <a href="#products">Products</a>
+        <a href="#orders">My Orders</a>
+        <button type="button" id="footerAdminBtn" style="background:none;border:none;color:inherit;padding:0;font-size:12px;">Admin Login</button>
+        <span>© 2026 Medicine &amp; Surgical Products</span>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" id="cartFab" class="cart-fab">🛒 <span id="cartCount" class="mono">0</span></button>
+  <div id="cartBackdrop" class="backdrop"></div>
+  <aside id="cartDrawer" class="drawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h2 id="cartHeading" style="font-size:18px;">আপনার কার্ট</h2>
+      <button type="button" id="closeCartBtn" class="modal-close" style="position:static;">×</button>
+    </div>
+    <div id="cartBody" class="drawer-body"></div>
+    <div id="cartFoot" class="drawer-foot"></div>
+  </aside>
+
+  <div id="authModalWrap" class="modal-wrap" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button type="button" id="closeAuthModal" class="modal-close">×</button>
+      <div id="authModalContent"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js';
+    import {
+      getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut,
+      signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail
+    } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js';
+    import {
+      getFirestore, collection, doc, setDoc, updateDoc, deleteDoc, getDoc, onSnapshot,
+      query, where, orderBy, serverTimestamp, writeBatch
+    } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js';
+
+    const firebaseConfig = {
+      projectId: 'plucky-hybrid-183d0',
+      appId: '1:212918463977:web:e34caca12e4d69f02a6f78',
+      apiKey: 'AIzaSyDQ_bb2200KbtIhgT-5vlgUi1aJp4qijL4',
+      authDomain: 'plucky-hybrid-183d0.firebaseapp.com',
+      firestoreDatabaseId: 'ai-studio-6fbe2214-7552-4050-a495-6b7877cb1b9b',
+      storageBucket: 'plucky-hybrid-183d0.firebasestorage.app',
+      messagingSenderId: '212918463977'
+    };
+
+    const ADMIN_EMAIL = 'monjurulislammd299@gmail.com';
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+    const googleProvider = new GoogleAuthProvider();
+    googleProvider.setCustomParameters({ prompt: 'select_account' });
+
+    const STARTER_PRODUCTS = [
+      { id: 'napa-extra-500-box', name: 'Paracetamol 500mg + Caffeine Tablets', nameBn: 'প্যারাসিটামল ৫০০ মি.গ্রা. ট্যাবলেট প্যাক', category: 'Medicine', price: 250, unit: '1 Box (10×10 Tabs)', stock: 140, imageUrl: '/src/assets/images/product_medicine_tablets_1795535747957.jpg', description: 'Fast-acting analgesic and antipyretic tablets in factory-sealed blister strips.', manufacturer: 'Beximco Pharma', requiresPrescription: false, featured: true },
+      { id: 'sterile-surgical-instrument-set', name: 'Stainless Surgical Scissors & Forceps Kit', nameBn: 'স্টেইনলেস সার্জিক্যাল কাঁচি ও ফরসেপস সেট', category: 'Surgical', price: 1280, unit: '1 Set (3 Instruments + Gauze)', stock: 42, imageUrl: '/src/assets/images/product_surgical_instruments_1795535749084.jpg', description: 'Autoclavable 304 stainless steel dressing scissors, thumb forceps, and sterile gauze pads.', manufacturer: 'MedCare Surgical', requiresPrescription: false, featured: true },
+      { id: 'digital-arm-bp-monitor', name: 'Automatic Upper-Arm BP Monitor', nameBn: 'ডিজিটাল ব্লাড প্রেসার মাপার মেশিন', category: 'Medical Equipment', price: 3450, unit: '1 Complete Unit (22–42cm Cuff)', stock: 28, imageUrl: '/src/assets/images/product_bp_monitor_1795535748956.jpg', description: 'Clinically validated oscillometric blood pressure monitor with wide-range cuff.', manufacturer: 'Omron Healthcare', requiresPrescription: false, featured: true },
+      { id: 'pulse-oximeter-ir-thermometer', name: 'Fingertip Pulse Oximeter & IR Thermometer', nameBn: 'পালস অক্সিমিটার ও ইনফ্রারেড থার্মোমিটার', category: 'Medical Equipment', price: 1850, unit: '2-Piece Diagnostic Combo', stock: 36, imageUrl: '/src/assets/images/product_pulse_oximeter_1795535749642.jpg', description: 'OLED SpO2 pulse oximeter paired with non-contact infrared forehead thermometer.', manufacturer: 'Medisure Diagnostics', requiresPrescription: false, featured: true },
+      { id: 'nitrile-gloves-surgical-masks', name: 'Powder-Free Nitrile Gloves & 3-Ply Masks', nameBn: 'নাইট্রাইল গ্লাভস (১০০ পিস) ও সার্জিক্যাল মাস্ক', category: 'Surgical', price: 780, unit: '100 Gloves + 50 Masks + Bandage', stock: 95, imageUrl: '/src/assets/images/product_surgical_ppe_1795535749459.jpg', description: 'Latex-free nitrile gloves paired with 3-ply surgical masks and sterile bandage.', manufacturer: 'MediGlove Supply', requiresPrescription: false, featured: false },
+      { id: 'chlorhexidine-antiseptic-dressing', name: 'Antiseptic Solution & Sterile Wound Kit', nameBn: 'অ্যান্টিসেপটিক সলিউশন ও জীবাণুমুক্ত ড্রেসিং কিট', category: 'Personal Care', price: 540, unit: '500ml Bottle + 100 Alcohol Pads', stock: 110, imageUrl: '/src/assets/images/product_antiseptic_care_1795535750087.jpg', description: 'Hospital-grade antiseptic solution with sterile wound dressing pack and alcohol swabs.', manufacturer: 'MediClean Labs', requiresPrescription: false, featured: false },
+      { id: 'oral-rehydration-electrolyte-syrup', name: 'Pediatric Oral Rehydration & Zinc Pack', nameBn: 'ওরাল স্যালাইন ও জিঙ্ক সাপোর্ট প্যাক', category: 'Medicine', price: 320, unit: '1 Bottle (200ml) + 10 Sachets', stock: 85, imageUrl: '/src/assets/images/product_medicine_tablets_1795535747957.jpg', description: 'WHO-formulated oral electrolyte balance pack with zinc support syrup.', manufacturer: 'Square Pharmaceuticals', requiresPrescription: false, featured: false },
+      { id: 'sterile-gauze-suture-prep-pack', name: 'Sterile Post-Op Dressing & Gauze Pack', nameBn: 'পোস্ট-অপারেটিভ জীবাণুমুক্ত গজ ও ড্রেসিং প্যাক', category: 'Personal Care', price: 460, unit: '20 Individually Sealed Packs', stock: 64, imageUrl: '/src/assets/images/product_surgical_instruments_1795535749084.jpg', description: 'Individually sealed 12-ply absorbent surgical gauze swabs for post-op care.', manufacturer: 'MedCare Surgical', requiresPrescription: false, featured: false }
+    ];
+
+    const state = {
+      user: null,
+      isAdmin: false,
+      view: window.location.hash === '#admin' ? 'admin' : 'store',
+      adminTab: 'catalog',
+      editingId: null,
+      products: [...STARTER_PRODUCTS],
+      seeded: false,
+      search: '',
+      category: 'ALL',
+      cart: JSON.parse(localStorage.getItem('msp_cart_v1') || '[]'),
+      cartStep: 'cart',
+      confirmedOrder: null,
+      myOrders: [],
+      allOrders: [],
+      trackingQuery: '',
+      authMode: 'login',
+      authError: ''
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (m) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    const fmtBDT = (n) => '৳' + Number(n || 0).toLocaleString('en-BD');
+    const normalizePhone = (s) => String(s || '').replace(/[০-৯]/g, (c) => String('০১২৩৪৫৬৭৮৯'.indexOf(c))).trim();
+
+    function toast(msg) {
+      const el = $('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(window.__t);
+      window.__t = setTimeout(() => el.classList.remove('show'), 3200);
+    }
+
+    function saveCart() {
+      localStorage.setItem('msp_cart_v1', JSON.stringify(state.cart));
+      renderCart();
+    }
+
+    function renderAll() {
+      const showAdminNav = state.isAdmin;
+      $('navAdminBtn').classList.toggle('hidden', !showAdminNav);
+      $('navAdminBtn').classList.toggle('active-link', state.view === 'admin');
+      $('footerAdminBtn').classList.toggle('hidden', Boolean(state.user && !state.isAdmin));
+      $('footerAdminBtn').textContent = state.isAdmin ? 'Admin Panel' : 'Admin Login';
+      $('authBtn').textContent = state.user ? `Logout (${(state.user.displayName || 'Account').split(' ')[0]})` : 'Login';
+      $('storeView').classList.toggle('hidden', state.view !== 'store');
+      $('adminView').classList.toggle('hidden', state.view !== 'admin');
+      renderProducts();
+      renderOrders();
+      renderCart();
+      renderAdmin();
+    }
+
+    function renderProducts() {
+      const q = state.search.trim().toLowerCase();
+      const filtered = state.products.filter((p) => {
+        if (state.category !== 'ALL' && p.category !== state.category) return false;
+        if (!q) return true;
+        return [p.name, p.nameBn, p.category, p.manufacturer, p.description].some((v) => String(v || '').toLowerCase().includes(q));
+      });
+      $('catalogNotice').classList.toggle('hidden', state.seeded);
+      $('seedCatalogBtn').classList.toggle('hidden', !state.isAdmin);
+      const grid = $('productGrid');
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="panel" style="grid-column:1/-1;text-align:center;">কোনো পণ্য পাওয়া যায়নি।</div>';
+        return;
+      }
+      grid.innerHTML = filtered.map((p) => `
+        <article class="card">
+          <div class="card-img"><img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" loading="lazy" onerror="this.style.display='none'" /></div>
+          <div class="card-body">
+            <div class="card-meta">${esc(p.category)} · ${esc(p.unit)}</div>
+            <h3 class="card-title">${esc(p.name)}</h3>
+            <p class="card-sub">${esc(p.nameBn)} · ${esc(p.manufacturer)}</p>
+            <div class="card-footer">
+              <span class="price mono">${fmtBDT(p.price)}</span>
+              <button type="button" class="btn-primary" data-add="${esc(p.id)}" ${p.stock <= 0 ? 'disabled' : ''}>
+                ${p.stock <= 0 ? 'স্টক নেই' : 'কার্টে যোগ করুন'}
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+      grid.querySelectorAll('[data-add]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const prod = state.products.find((x) => x.id === btn.dataset.add);
+          if (!prod) return;
+          const existing = state.cart.find((c) => c.productId === prod.id);
+          if (existing) existing.quantity += 1;
+          else state.cart.push({ productId: prod.id, name: prod.name, nameBn: prod.nameBn, price: prod.price, quantity: 1, unit: prod.unit, imageUrl: prod.imageUrl });
+          saveCart();
+          toast(`${prod.name} কার্টে যোগ হয়েছে`);
+        });
+      });
+    }
+
+    function renderOrders() {
+      const box = $('orderList');
+      $('trackingSearch').classList.toggle('hidden', !state.user || !state.user.emailVerified);
+      if (!state.user) {
+        box.innerHTML = '<div class="panel" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;"><div><strong>আপনার অর্ডার ইতিহাস দেখতে লগইন করুন</strong><div class="muted">লগইন করলে আপনার অর্ডার ও Tracking ID দেখা যাবে।</div></div><button type="button" id="ordersLoginBtn" class="btn-primary">Login করুন</button></div>';
+        $('ordersLoginBtn')?.addEventListener('click', openAuthModal);
+        return;
+      }
+      if (!state.user.emailVerified) {
+        box.innerHTML = `<div class="panel"><strong>ইমেইল ভেরিফিকেশন প্রয়োজন</strong><p class="muted">অর্ডার দেখতে এবং নতুন অর্ডার করতে আপনার ইমেইল (${esc(state.user.email)}) ভেরিফাই করুন।</p><button type="button" id="ordersVerifyBtn" class="btn-primary" style="margin-top:12px;">ভেরিফিকেশন স্ট্যাটাস</button></div>`;
+        $('ordersVerifyBtn')?.addEventListener('click', openAuthModal);
+        return;
+      }
+      const q = state.trackingQuery.trim().toLowerCase();
+      const list = q ? state.myOrders.filter((o) => o.trackingId.toLowerCase().includes(q) || o.status.toLowerCase().includes(q)) : state.myOrders;
+      if (list.length === 0) {
+        box.innerHTML = '<div class="panel" style="text-align:center;">এখনো কোনো অর্ডার পাওয়া যায়নি।</div>';
+        return;
+      }
+      const flow = ['Pending', 'Confirmed', 'Packed', 'Shipped', 'Delivered'];
+      box.innerHTML = list.map((o) => {
+        const idx = flow.indexOf(o.status);
+        return `
+          <div class="order-card">
+            <div class="order-head">
+              <div><strong class="mono">${esc(o.trackingId)}</strong> · <span>${esc(o.paymentMethod)}</span></div>
+              <strong>${esc(o.status)}</strong>
+            </div>
+            ${o.status !== 'Cancelled' ? `<div class="progress-row">${flow.map((st, i) => `<div><div class="progress-bar ${idx >= i ? 'done' : ''}"></div><span class="progress-label">${st}</span></div>`).join('')}</div>` : ''}
+            <div style="font-size:13px;color:var(--muted);margin-top:6px;">
+              ${o.items.map((i) => `${esc(i.name)} × ${i.quantity}`).join(', ')} — <strong class="mono" style="color:var(--text);">${fmtBDT(o.total)}</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#64748b;">
+              <span>${esc(o.customerName)} · ${esc(o.phone)} · ${esc(o.address)}, ${esc(o.city)}</span>
+              ${o.status === 'Pending' ? `<button type="button" class="btn-ghost" data-cancel="${esc(o.id)}" style="color:var(--danger);">অর্ডার বাতিল</button>` : ''}
+            </div>
+          </div>`;
+      }).join('');
+      box.querySelectorAll('[data-cancel]').forEach((b) => {
+        b.addEventListener('click', async () => {
+          await updateDoc(doc(db, 'orders', b.dataset.cancel), { status: 'Cancelled', updatedAt: serverTimestamp() });
+          toast('অর্ডার বাতিল করা হয়েছে।');
+        });
+      });
+    }
+
+    function renderCart() {
+      const count = state.cart.reduce((s, i) => s + i.quantity, 0);
+      const sub = state.cart.reduce((s, i) => s + i.price * i.quantity, 0);
+      $('cartCount').textContent = String(count);
+      const body = $('cartBody');
+      const foot = $('cartFoot');
+
+      if (state.cartStep === 'confirmed' && state.confirmedOrder) {
+        $('cartHeading').textContent = 'অর্ডার নিশ্চিত হয়েছে';
+        body.innerHTML = `<div style="text-align:center;padding:24px 0;"><h3>ধন্যবাদ! অর্ডার গৃহীত হয়েছে</h3><p class="muted" style="margin:8px 0 18px;">Tracking ID: <strong class="mono">${esc(state.confirmedOrder.trackingId)}</strong></p><button type="button" id="goOrdersBtn" class="btn-primary" style="width:100%;">আমার অর্ডার দেখুন</button></div>`;
+        foot.innerHTML = '';
+        $('goOrdersBtn')?.addEventListener('click', () => { closeCart(); location.hash = '#orders'; });
+        return;
+      }
+
+      if (state.cart.length === 0) {
+        $('cartHeading').textContent = 'আপনার কার্ট';
+        body.innerHTML = '<p class="muted" style="text-align:center;padding:40px 0;">আপনার কার্ট বর্তমানে খালি।</p>';
+        foot.innerHTML = '';
+        return;
+      }
+
+      if (state.cartStep === 'cart') {
+        $('cartHeading').textContent = 'আপনার কার্ট';
+        body.innerHTML = state.cart.map((i) => `
+          <div class="cart-row">
+            <img src="${esc(i.imageUrl)}" alt="${esc(i.name)}" onerror="this.style.display='none'" />
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:13px;font-weight:600;">${esc(i.name)}</div>
+              <div style="font-size:12px;color:#64748b;margin:2px 0 6px;">${esc(i.unit)} · <span class="mono">${fmtBDT(i.price * i.quantity)}</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="stepper">
+                  <button type="button" data-dec="${esc(i.productId)}">−</button>
+                  <span class="mono">${i.quantity}</span>
+                  <button type="button" data-inc="${esc(i.productId)}">+</button>
+                </div>
+                <button type="button" data-del="${esc(i.productId)}" style="background:none;border:none;color:var(--danger);font-size:12px;">মুছুন</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        body.querySelectorAll('[data-dec]').forEach((b) => b.addEventListener('click', () => {
+          const item = state.cart.find((x) => x.productId === b.dataset.dec);
+          if (item) { item.quantity -= 1; if (item.quantity <= 0) state.cart = state.cart.filter((x) => x.productId !== item.productId); saveCart(); }
+        }));
+        body.querySelectorAll('[data-inc]').forEach((b) => b.addEventListener('click', () => {
+          const item = state.cart.find((x) => x.productId === b.dataset.inc);
+          if (item) { item.quantity += 1; saveCart(); }
+        }));
+        body.querySelectorAll('[data-del]').forEach((b) => b.addEventListener('click', () => {
+          state.cart = state.cart.filter((x) => x.productId !== b.dataset.del); saveCart();
+        }));
+        foot.innerHTML = `
+          <div style="display:flex;justify-content:space-between;font-weight:700;margin-bottom:10px;"><span>সাবটোটাল</span><span class="mono">${fmtBDT(sub)}</span></div>
+          <button type="button" id="toCheckoutBtn" class="btn-primary" style="width:100%;">অর্ডার করুন</button>
+          <p class="muted" style="font-size:11px;text-align:center;margin-top:8px;">ডেমো: আসল পেমেন্ট চালু করতে অনুমোদিত bKash/Nagad gateway লাগবে।</p>
+        `;
+        $('toCheckoutBtn').addEventListener('click', () => { state.cartStep = 'checkout'; renderCart(); });
+        return;
+      }
+
+      $('cartHeading').textContent = 'ডেলিভারি তথ্য';
+      body.innerHTML = `
+        <form id="checkoutForm">
+          ${(!state.user || !state.user.emailVerified) ? `<div class="err-box" style="background:#fffbeb;border-color:#fde68a;color:#92400e;">${!state.user ? 'অর্ডার করতে আগে লগইন করুন।' : 'অর্ডার করতে ইমেইল ভেরিফাই করুন।'} <button type="button" id="chkLoginBtn" style="background:none;border:none;font-weight:700;text-decoration:underline;">${!state.user ? 'Login' : 'Verify'}</button></div>` : ''}
+          <div id="chkErr" class="err-box hidden"></div>
+          <div class="field"><label>পূর্ণ নাম *</label><input id="cName" class="input" required minlength="2" value="${esc(state.user?.displayName || '')}" /></div>
+          <div class="field"><label>মোবাইল নম্বর *</label><input id="cPhone" class="input" required placeholder="017XXXXXXXX" /></div>
+          <div class="field"><label>শহর / জেলা *</label><input id="cCity" class="input" required value="Dhaka" /></div>
+          <div class="field"><label>ডেলিভারি ঠিকানা *</label><textarea id="cAddr" class="textarea" rows="2" required minlength="5"></textarea></div>
+          <div class="field"><label>পেমেন্ট পদ্ধতি</label>
+            <select id="cPay" class="select"><option>Cash on Delivery</option><option>bKash (Demo)</option><option>Nagad (Demo)</option></select>
+          </div>
+          <div class="field"><label>নোট (ঐচ্ছিক)</label><input id="cNotes" class="input" /></div>
+        </form>
+      `;
+      $('chkLoginBtn')?.addEventListener('click', openAuthModal);
+      const fee = sub >= 2000 ? 0 : 60;
+      foot.innerHTML = `
+        <div style="display:flex;justify-content:space-between;font-weight:700;margin-bottom:10px;"><span>মোট বিল (ডেলিভারিসহ)</span><span class="mono">${fmtBDT(sub + fee)}</span></div>
+        <div style="display:flex;gap:8px;">
+          <button type="button" id="backCartBtn" class="btn-ghost">পিছনে</button>
+          <button type="submit" form="checkoutForm" class="btn-primary" style="flex:1;">অর্ডার নিশ্চিত করুন</button>
+        </div>
+      `;
+      $('backCartBtn').addEventListener('click', () => { state.cartStep = 'cart'; renderCart(); });
+      $('checkoutForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!state.user || !state.user.emailVerified) { openAuthModal(); return; }
+        const phone = normalizePhone($('cPhone').value);
+        if (!/^[0-9+\-\s()]{6,30}$/.test(phone)) {
+          $('chkErr').textContent = 'সঠিক মোবাইল নম্বর লিখুন (যেমন 017XXXXXXXX)।';
+          $('chkErr').classList.remove('hidden');
+          return;
+        }
+        const city = $('cCity').value.trim() || 'Dhaka';
+        const deliveryFee = sub >= 2000 ? 0 : (city.toLowerCase() === 'dhaka' ? 60 : 120);
+        const trackingId = 'MSP-' + Date.now().toString(36).toUpperCase().slice(-5) + '-' + Math.random().toString(36).toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,4);
+        const orderId = 'ord-' + Date.now().toString(36);
+        const payload = {
+          userId: state.user.uid,
+          customerEmail: state.user.email || 'customer@example.com',
+          customerName: $('cName').value.trim(),
+          phone,
+          address: $('cAddr').value.trim(),
+          city,
+          trackingId,
+          items: state.cart,
+          subtotal: sub,
+          deliveryFee,
+          total: sub + deliveryFee,
+          paymentMethod: $('cPay').value,
+          status: 'Pending',
+          notes: $('cNotes').value.trim(),
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp()
+        };
+        await setDoc(doc(db, 'orders', orderId), payload);
+        state.cart = [];
+        state.confirmedOrder = { id: orderId, ...payload };
+        state.cartStep = 'confirmed';
+        saveCart();
+        toast('অর্ডার সম্পন্ন হয়েছে! Tracking ID: ' + trackingId);
+      });
+    }
+
+    function renderAuthModal() {
+      const box = $('authModalContent');
+      if (state.user && !state.user.emailVerified) {
+        box.innerHTML = `
+          <h3>ইমেইল ভেরিফিকেশন প্রয়োজন</h3>
+          <p class="muted" style="margin:8px 0 16px;">আপনার ইমেইল (${esc(state.user.email)}) ইনবক্সে পাঠানো লিংক দিয়ে ভেরিফাই করুন।</p>
+          ${state.authError ? `<div class="err-box">${esc(state.authError)}</div>` : ''}
+          <button type="button" id="mRefreshBtn" class="btn-primary" style="width:100%;margin-bottom:8px;">ভেরিফাই সম্পন্ন (রিফ্রেশ)</button>
+          <button type="button" id="mResendBtn" class="btn-ghost" style="width:100%;margin-bottom:8px;">ইমেইল আবার পাঠান</button>
+          <button type="button" id="mLogoutBtn" class="btn-ghost" style="width:100%;">Logout</button>
+        `;
+        $('mRefreshBtn').addEventListener('click', async () => {
+          await auth.currentUser.reload();
+          if (auth.currentUser.emailVerified) {
+            await auth.currentUser.getIdToken(true);
+            closeAuthModal();
+            toast('ইমেইল ভেরিফিকেশন সফল!');
+            location.reload();
+          } else toast('এখনো ভেরিফাই হয়নি।');
+        });
+        $('mResendBtn').addEventListener('click', async () => { await sendEmailVerification(auth.currentUser); toast('ভেরিফিকেশন ইমেইল পাঠানো হয়েছে।'); });
+        $('mLogoutBtn').addEventListener('click', async () => { await signOut(auth); closeAuthModal(); });
+        return;
+      }
+      box.innerHTML = `
+        <h3 style="margin-bottom:4px;">Customer Login / Registration</h3>
+        <p class="muted" style="margin-bottom:14px;">ইমেইল ও পাসওয়ার্ড অথবা Google অ্যাকাউন্ট দিয়ে লগইন করুন।</p>
+        <div class="tabs" style="width:100%;display:grid;grid-template-columns:1fr 1fr;margin-bottom:14px;">
+          <button type="button" id="modeLogin" class="tab-btn ${state.authMode === 'login' ? 'active' : ''}">Login</button>
+          <button type="button" id="modeReg" class="tab-btn ${state.authMode === 'register' ? 'active' : ''}">Register</button>
+        </div>
+        ${state.authError ? `<div class="err-box">${esc(state.authError)}</div>` : ''}
+        <form id="authForm">
+          <div class="field"><label>Email *</label><input id="aEmail" class="input" type="email" required /></div>
+          <div class="field"><label>Password * (কমপক্ষে ৬ অক্ষর)</label><input id="aPass" class="input" type="password" minlength="6" required /></div>
+          <button type="submit" class="btn-primary" style="width:100%;">${state.authMode === 'login' ? 'Login' : 'Register'}</button>
+        </form>
+        <button type="button" id="forgotBtn" style="background:none;border:none;color:var(--accent);font-size:12px;margin-top:8px;padding:0;">পাসওয়ার্ড ভুলে গেছেন?</button>
+        <div style="text-align:center;color:#94a3b8;font-size:12px;margin:14px 0;">অথবা</div>
+        <button type="button" id="googleBtn" class="btn-ghost" style="width:100%;">Continue with Google</button>
+      `;
+      $('modeLogin').addEventListener('click', () => { state.authMode = 'login'; state.authError = ''; renderAuthModal(); });
+      $('modeReg').addEventListener('click', () => { state.authMode = 'register'; state.authError = ''; renderAuthModal(); });
+      $('googleBtn').addEventListener('click', async () => {
+        try { await signInWithPopup(auth, googleProvider); closeAuthModal(); toast('লগইন সফল হয়েছে।'); }
+        catch (err) { state.authError = err.message; renderAuthModal(); }
+      });
+      $('forgotBtn').addEventListener('click', async () => {
+        const em = $('aEmail').value.trim();
+        if (!em) { state.authError = 'প্রথমে ইমেইল দিন।'; renderAuthModal(); return; }
+        await sendPasswordResetEmail(auth, em); toast('পাসওয়ার্ড রিসেট ইমেইল পাঠানো হয়েছে।');
+      });
+      $('authForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        try {
+          if (state.authMode === 'login') {
+            const cred = await signInWithEmailAndPassword(auth, $('aEmail').value.trim(), $('aPass').value);
+            if (cred.user.emailVerified) { closeAuthModal(); toast('লগইন সফল হয়েছে।'); }
+            else renderAuthModal();
+          } else {
+            const cred = await createUserWithEmailAndPassword(auth, $('aEmail').value.trim(), $('aPass').value);
+            await sendEmailVerification(cred.user);
+            renderAuthModal();
+          }
+        } catch (err) { state.authError = err.message; renderAuthModal(); }
+      });
+    }
+
+    function renderAdmin() {
+      const gate = $('adminGate');
+      const content = $('adminContent');
+      $('adminTabs').classList.toggle('hidden', !state.isAdmin);
+      if (!state.user || !state.isAdmin) {
+        gate.classList.remove('hidden');
+        content.classList.add('hidden');
+        if (!state.user) {
+          gate.innerHTML = `
+            <h3>শুধুমাত্র অ্যাডমিন প্রবেশাধিকার</h3>
+            <p class="muted" style="margin:8px 0 16px;">Admin Panel-এ প্রবেশ করতে অনুমোদিত অ্যাডমিন Gmail ও পাসওয়ার্ড অথবা Google দিয়ে লগইন করুন।</p>
+            <form id="admLoginForm">
+              <div class="field"><label>Admin Gmail *</label><input id="admEmail" class="input" type="email" required /></div>
+              <div class="field"><label>Password *</label><input id="admPass" class="input" type="password" minlength="6" required /></div>
+              <button type="submit" class="btn-primary" style="width:100%;margin-bottom:10px;">Password দিয়ে Admin Login</button>
+            </form>
+            <button type="button" id="admGoogleBtn" class="btn-ghost" style="width:100%;">Google (Gmail) দিয়ে Admin Login</button>
+          `;
+          $('admGoogleBtn').addEventListener('click', () => signInWithPopup(auth, googleProvider));
+          $('admLoginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            try { await signInWithEmailAndPassword(auth, $('admEmail').value.trim(), $('admPass').value); }
+            catch (err) { toast(err.message); }
+          });
+        } else {
+          gate.innerHTML = `<h3>প্রবেশাধিকার নেই</h3><p class="muted" style="margin:8px 0 16px;">${esc(state.user.email)} অনুমোদিত অ্যাডমিন Gmail নয়।</p><button type="button" id="admSwitchBtn" class="btn-primary">অন্য Gmail দিয়ে লগইন</button>`;
+          $('admSwitchBtn').addEventListener('click', async () => { await signOut(auth); await signInWithPopup(auth, googleProvider); });
+        }
+        return;
+      }
+
+      gate.classList.add('hidden');
+      content.classList.remove('hidden');
+      $('adminCatalogTab').classList.toggle('hidden', state.adminTab !== 'catalog');
+      $('adminOrdersTab').classList.toggle('hidden', state.adminTab !== 'orders');
+
+      $('adminProductRows').innerHTML = state.products.map((p) => `
+        <tr>
+          <td><strong>${esc(p.name)}</strong><div style="font-size:11px;color:#64748b;">${esc(p.nameBn)}</div></td>
+          <td>${esc(p.category)}</td>
+          <td class="mono">${fmtBDT(p.price)}</td>
+          <td class="mono">${p.stock}</td>
+          <td>
+            <button type="button" class="btn-ghost" data-edit="${esc(p.id)}" style="padding:4px 8px;font-size:11px;">Edit</button>
+            <button type="button" class="btn-ghost" data-delp="${esc(p.id)}" style="padding:4px 8px;font-size:11px;color:var(--danger);">Del</button>
+          </td>
+        </tr>
+      `).join('');
+
+      $('adminProductRows').querySelectorAll('[data-edit]').forEach((b) => b.addEventListener('click', () => {
+        const p = state.products.find((x) => x.id === b.dataset.edit);
+        if (!p) return;
+        state.editingId = p.id;
+        $('productFormTitle').textContent = 'পণ্য তথ্য সম্পাদনা';
+        $('cancelEditBtn').classList.remove('hidden');
+        $('pName').value = p.name; $('pNameBn').value = p.nameBn; $('pCategory').value = p.category;
+        $('pMaker').value = p.manufacturer; $('pPrice').value = p.price; $('pStock').value = p.stock;
+        $('pUnit').value = p.unit; $('pImageUrl').value = p.imageUrl; $('pPreview').src = p.imageUrl;
+        $('pDesc').value = p.description || '';
+      }));
+      $('adminProductRows').querySelectorAll('[data-delp]').forEach((b) => b.addEventListener('click', async () => {
+        await deleteDoc(doc(db, 'products', b.dataset.delp));
+        toast('পণ্য মুছে ফেলা হয়েছে।');
+      }));
+
+      const orderBox = $('adminOrderList');
+      if (state.allOrders.length === 0) {
+        orderBox.innerHTML = '<div class="panel" style="text-align:center;">কোনো অর্ডার নেই।</div>';
+      } else {
+        orderBox.innerHTML = state.allOrders.map((o) => `
+          <div class="order-card" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;">
+            <div>
+              <strong class="mono">${esc(o.trackingId)}</strong> · <span>${esc(o.customerName)}</span> · <span class="mono">${fmtBDT(o.total)}</span>
+              <div class="muted" style="font-size:12px;">${esc(o.address)}, ${esc(o.city)} · ${esc(o.phone)}</div>
+            </div>
+            <select class="select" style="width:auto;" data-ordstatus="${esc(o.id)}">
+              ${['Pending','Confirmed','Packed','Shipped','Delivered','Cancelled'].map((s) => `<option ${o.status === s ? 'selected' : ''}>${s}</option>`).join('')}
+            </select>
+          </div>
+        `).join('');
+        orderBox.querySelectorAll('[data-ordstatus]').forEach((sel) => sel.addEventListener('change', async () => {
+          await updateDoc(doc(db, 'orders', sel.dataset.ordstatus), { status: sel.value, updatedAt: serverTimestamp() });
+          toast('অর্ডার স্ট্যাটাস আপডেট হয়েছে।');
+        }));
+      }
+    }
+
+    function openCart() { $('cartBackdrop').classList.add('open'); $('cartDrawer').classList.add('open'); renderCart(); }
+    function closeCart() {
+      $('cartBackdrop').classList.remove('open'); $('cartDrawer').classList.remove('open');
+      if (state.cartStep === 'confirmed') { state.cartStep = 'cart'; state.confirmedOrder = null; }
+    }
+    function openAuthModal() { state.authError = ''; renderAuthModal(); $('authModalWrap').classList.add('open'); }
+    function closeAuthModal() { $('authModalWrap').classList.remove('open'); }
+
+    // Event bindings
+    $('cartFab').addEventListener('click', openCart);
+    $('closeCartBtn').addEventListener('click', closeCart);
+    $('cartBackdrop').addEventListener('click', closeCart);
+    $('closeAuthModal').addEventListener('click', closeAuthModal);
+    $('authBtn').addEventListener('click', () => state.user ? signOut(auth) : openAuthModal());
+    $('navAdminBtn').addEventListener('click', () => { state.view = state.view === 'admin' ? 'store' : 'admin'; renderAll(); });
+    $('footerAdminBtn').addEventListener('click', () => { state.view = 'admin'; window.scrollTo(0, 0); renderAll(); });
+    $('backToStoreBtn').addEventListener('click', () => { state.view = 'store'; renderAll(); });
+    $('brandLink').addEventListener('click', () => { state.view = 'store'; renderAll(); });
+    $('searchInput').addEventListener('input', (e) => { state.search = e.target.value; renderProducts(); });
+    $('trackingSearch').addEventListener('input', (e) => { state.trackingQuery = e.target.value; renderOrders(); });
+    $('categoryTabs').querySelectorAll('[data-cat]').forEach((b) => b.addEventListener('click', () => {
+      state.category = b.dataset.cat;
+      $('categoryTabs').querySelectorAll('.tab-btn').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      renderProducts();
+    }));
+    $('adminTabs').querySelectorAll('[data-admintab]').forEach((b) => b.addEventListener('click', () => {
+      state.adminTab = b.dataset.admintab;
+      $('adminTabs').querySelectorAll('.tab-btn').forEach((x) => x.classList.remove('active'));
+      b.classList.add('active');
+      renderAdmin();
+    }));
+    $('pImageUrl').addEventListener('input', (e) => { $('pPreview').src = e.target.value; });
+    $('pImageFile').addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        const canvas = document.createElement('canvas');
+        const scale = Math.min(1, 560 / img.naturalWidth);
+        canvas.width = Math.round(img.naturalWidth * scale);
+        canvas.height = Math.round(img.naturalHeight * scale);
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.72);
+        $('pImageUrl').value = dataUrl; $('pPreview').src = dataUrl;
+      };
+      img.src = url;
+    });
+    $('cancelEditBtn').addEventListener('click', () => {
+      state.editingId = null; $('productForm').reset();
+      $('productFormTitle').textContent = 'নতুন পণ্য যোগ করুন'; $('cancelEditBtn').classList.add('hidden');
+    });
+    $('productForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        name: $('pName').value.trim(), nameBn: $('pNameBn').value.trim(), category: $('pCategory').value,
+        price: Number($('pPrice').value), unit: $('pUnit').value.trim(), stock: Math.floor(Number($('pStock').value)),
+        imageUrl: $('pImageUrl').value.trim(), description: $('pDesc').value.trim(),
+        manufacturer: $('pMaker').value.trim(), requiresPrescription: false, featured: false,
+        updatedAt: serverTimestamp()
+      };
+      if (state.editingId) {
+        await updateDoc(doc(db, 'products', state.editingId), data);
+        toast('পণ্য আপডেট হয়েছে।');
+      } else {
+        const id = data.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,36) + '-' + Math.random().toString(36).slice(2,6);
+        await setDoc(doc(db, 'products', id), { ...data, createdAt: serverTimestamp() });
+        toast('নতুন পণ্য যোগ হয়েছে।');
+      }
+      state.editingId = null; $('productForm').reset(); $('cancelEditBtn').classList.add('hidden');
+      $('productFormTitle').textContent = 'নতুন পণ্য যোগ করুন';
+    });
+    $('seedCatalogBtn').addEventListener('click', async () => {
+      const batch = writeBatch(db);
+      STARTER_PRODUCTS.forEach((p) => batch.set(doc(db, 'products', p.id), { ...p, createdAt: serverTimestamp(), updatedAt: serverTimestamp() }));
+      await batch.commit();
+      toast('৮টি প্রাথমিক পণ্য সংরক্ষিত হয়েছে।');
+    });
+
+    // Live Firestore products listener
+    onSnapshot(query(collection(db, 'products'), orderBy('name', 'asc')), (snap) => {
+      if (!snap.empty) {
+        state.seeded = true;
+        state.products = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+      } else {
+        state.seeded = false;
+        state.products = [...STARTER_PRODUCTS];
+      }
+      renderProducts();
+      renderAdmin();
+    });
+
+    let unsubMyOrders = null;
+    let unsubAllOrders = null;
+    onAuthStateChanged(auth, async (u) => {
+      state.user = u;
+      state.isAdmin = Boolean(u && u.emailVerified && u.email?.toLowerCase() === ADMIN_EMAIL);
+      if (unsubMyOrders) { unsubMyOrders(); unsubMyOrders = null; }
+      if (unsubAllOrders) { unsubAllOrders(); unsubAllOrders = null; }
+      if (u && u.emailVerified) {
+        unsubMyOrders = onSnapshot(query(collection(db, 'orders'), where('userId', '==', u.uid)), (snap) => {
+          state.myOrders = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+          renderOrders();
+        });
+        if (state.isAdmin) {
+          unsubAllOrders = onSnapshot(query(collection(db, 'orders'), orderBy('createdAt', 'desc')), (snap) => {
+            state.allOrders = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+            renderAdmin();
+          });
+        }
+      } else {
+        state.myOrders = [];
+        state.allOrders = [];
+      }
+      renderAll();
+    });
+
+    renderAll();
+  </script>
+</body>
+</html>

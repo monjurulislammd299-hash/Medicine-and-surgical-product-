@@ -1,0 +1,296 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "A medicine, surgical supply, medical equipment, or personal care item available in the store catalog.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 140,
+          "description": "Primary product name in English."
+        },
+        "nameBn": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 180,
+          "description": "Localized Bengali product name."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["Medicine", "Surgical", "Medical Equipment", "Personal Care"],
+          "description": "Product category."
+        },
+        "price": {
+          "type": "number",
+          "description": "Unit price in Bangladeshi Taka (BDT)."
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60,
+          "description": "Packaging or dosage unit label."
+        },
+        "stock": {
+          "type": "number",
+          "description": "Available inventory count."
+        },
+        "imageUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100000,
+          "description": "Product image path, HTTPS URL, or optimized JPEG data URL."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 1000,
+          "description": "Clinical overview and usage details."
+        },
+        "manufacturer": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Manufacturer or brand name."
+        },
+        "requiresPrescription": {
+          "type": "boolean",
+          "description": "Whether a physician prescription note is advised."
+        },
+        "featured": {
+          "type": "boolean",
+          "description": "Whether the product is highlighted in featured sections."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server last-updated timestamp."
+        }
+      },
+      "required": [
+        "name",
+        "nameBn",
+        "category",
+        "price",
+        "unit",
+        "stock",
+        "imageUrl",
+        "description",
+        "manufacturer",
+        "requiresPrescription",
+        "featured",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A customer order containing purchased items, delivery information, and tracking status.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Authenticated customer UID."
+        },
+        "customerEmail": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200,
+          "description": "Authenticated customer email."
+        },
+        "customerName": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120,
+          "description": "Recipient full name."
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 30,
+          "pattern": "^[0-9+\\-\\s()]{6,30}$",
+          "description": "Recipient phone number."
+        },
+        "address": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 400,
+          "description": "Street delivery address."
+        },
+        "city": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80,
+          "description": "Delivery city or district."
+        },
+        "trackingId": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 40,
+          "pattern": "^MSP-[A-Z0-9\\-]+$",
+          "description": "Human-readable order tracking identifier."
+        },
+        "items": {
+          "type": "array",
+          "description": "Bounded list of ordered line items (max 50)."
+        },
+        "subtotal": {
+          "type": "number",
+          "description": "Order subtotal in BDT."
+        },
+        "deliveryFee": {
+          "type": "number",
+          "description": "Delivery fee in BDT."
+        },
+        "total": {
+          "type": "number",
+          "description": "Total amount (subtotal + deliveryFee) in BDT."
+        },
+        "paymentMethod": {
+          "type": "string",
+          "enum": ["Cash on Delivery", "bKash (Demo)", "Nagad (Demo)"],
+          "description": "Selected payment method."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Pending", "Confirmed", "Packed", "Shipped", "Delivered", "Cancelled"],
+          "description": "Fulfillment lifecycle status."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 500,
+          "description": "Optional delivery or prescription note."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server last-updated timestamp."
+        }
+      },
+      "required": [
+        "userId",
+        "customerEmail",
+        "customerName",
+        "phone",
+        "address",
+        "city",
+        "trackingId",
+        "items",
+        "subtotal",
+        "deliveryFee",
+        "total",
+        "paymentMethod",
+        "status",
+        "notes",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Private customer delivery profile isolated under users/{userId}/private/profile.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 120
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 30
+        },
+        "address": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 400
+        },
+        "city": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 80
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "userId",
+        "email",
+        "displayName",
+        "phone",
+        "address",
+        "city",
+        "updatedAt"
+      ]
+    },
+    "AdminRole": {
+      "title": "AdminRole",
+      "description": "Trusted store administrator designation document.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200
+        },
+        "grantedBy": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["email", "grantedBy", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/Product" },
+      "description": "Publicly readable product catalog managed exclusively by store administrators."
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Customer orders isolated by userId; customers can read their own orders and cancel Pending orders, while admins manage fulfillment."
+    },
+    "/users/{userId}/private/{docId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Private PII delivery profile restricted strictly to the owning user or an admin."
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminRole" },
+      "description": "Admin role registry managed by the bootstrapped owner."
+    }
+  }
+}
